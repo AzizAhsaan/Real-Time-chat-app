@@ -1,8 +1,10 @@
+export {}
+
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 // server/server.js
 const http = require('http');
-const server = http.createServer((req, res) => {
+const server = http.createServer((req:any, res:any) => {
   // Handle HTTP requests if needed
 });
 
@@ -13,11 +15,11 @@ const io = new Server(server, {
       methods: ["GET", "POST"], // Allow these HTTP methods
     }
   });
-io.on('connection', (socket) => {
+io.on('connection', (socket:any) => {
   console.log('A user connected');
   
   // Handle chat messages
-  socket.on('chat message', async (message) => {
+  socket.on('chat message', async (message:any) => {
   console.log('Message content:', message.content);
   console.log('User ID:', message.userId);
   console.log('Room ID:', message.roomId);

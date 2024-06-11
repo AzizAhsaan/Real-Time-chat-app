@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import Messages from '@/app/chatapp/components/chatRoomComponents/Messages';
 type Props = {}
 
-const page = (props: Props) => {
+const ChatRoomByID = (props: Props) => {
   const [roomsMessages, setRoomsMessages] = useState([]);
   const userID: string = usePathname().split('/')[3];
   const roomID: string = usePathname().split('/')[5];
@@ -31,4 +31,4 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default ChatRoomByID

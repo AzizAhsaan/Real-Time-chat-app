@@ -16,11 +16,10 @@ export async function POST(req:Request,res:NextApiResponse) {
     })
 }
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    console.log('Request received:', req.method, req.url);
-    console.log('Query parameters:', req.query);
-    const url = new URL(req.url, `http://${req.headers.host}`);
-    const id = url.searchParams.get('id');
+export async function GET(req: NextRequest, res: NextApiResponse) {
+    const host = req.headers.get('host');
+    const url = new URL(req.url!, `http://${host}`);
+        const id = url.searchParams.get('id');
 
         const room = await prisma.user.findUnique({
             where: {
